@@ -1,0 +1,258 @@
+#Q1 << yes, we can hold str , int , float ,... in one list.
+#Q2 << acsses the elements from the end.
+#Q3 << Mylist = [45, -3, 16, 8]
+#Q4 << a)10   b)29   c)10   d)29   e)-4   f)29   g)10   h)illegal..list indices mustn't be float.
+#Q5 << a)3    b)5    c)1    d)5    e)5    f)2    g)0    h)3
+#Q6 << function : len()
+#Q7 << lst = []
+#Q8 <<
+'''[20, 1, -34, 40, -8, 60, 1, 3]
+[20, 1, -34]
+[-8, 60, 1, 3]
+[-8, 60, 1, 3]
+[40, -8]
+[20, 1, -34]
+[-8, 60, 1, 3]
+[20, 1, -34, 40, -8, 60, 1, 3]
+[20, 1, -34, 40]
+[1, -34, 40, -8]
+True
+False
+8
+'''
+#-------------------------------------------------------------------
+#Q9 << a)impossible instead : original += [12,14,16,18,20]
+#      b)impossible instead : target = [-10,-8,-6,-4,-2,0] + original
+#      c)impossible but can fix with append or other functions
+#      d)impossible ..........................................
+#      e)[ : ]
+#      f)[-1:1]
+#      g)[ : :-1]
+#      h)[0:3]
+#      i)[2:5] or [2: ]
+#      j)[0: :4]
+#      k)[1:4]
+#-------------------------------------------------------------------
+#Q10 <<  a)[8, 8, 8, 8]
+#        b)[2, 7, 2, 7, 2, 7, 2, 7, 2, 7, 2, 7]
+#        c)[1, 2, 3, 'a', 'b', 'c', 'd']
+#        d)[1, 2, 1, 2, 1, 2, 4, 2]
+#        e)[1, 2, 4, 2, 1, 2, 4, 2, 1, 2, 4, 2]
+#------------------------------------------------------------------
+#Q11 <<  a)[3, 5, 7, 9]
+#        b)[50, 60, 70, 80, 90]
+#        c)[12, 15, 18]
+#        d)[(0, 0),(0, 1),(0, 2),(0, 3),(1, 0),(1, 1),(1, 2),(1, 3),(2, 0),(2, 1),(2, 2),(2, 3)]
+#        e)[(0, 0),(0, 2),(1, 1),(1, 3),(2, 0),(2, 2)]
+#--------------------------------------------------------------------
+#Q12 <<
+# a)===========
+''' lst = []
+for i in range(1,6):
+    z = i**2
+    lst += [z]
+
+print(lst)
+'''
+# b)===========
+''' lst = []
+n = 3
+while n>0:
+    z = n/2
+    lst += [z]
+    n -= 0.5
+print(lst[::-1])
+'''
+# c)===========
+'''lst = [('a',y) for y in range(3) ]
+lst2 = [('b',y)for y in range(3) ]
+flst = lst+lst2
+print(flst)
+'''
+#Q13 << y = x in lst ///or/// y = x not in lst    (y is True vs False)
+#Q14 << It can reverse a list(return the elements from the end) => list(reversed(lst))
+#Q15 <<
+''' 
+def sum_positive(a):
+    z = 0
+    for i in a:
+        if i>0:
+            z+=i
+        else :
+            pass
+    return z    
+        
+x = [3,-3,5,2,-1,2] 
+print('summation of positive numbers: ',sum_positive(x))
+'''
+#--------------------------------------------------------------
+#Q16 <<
+'''
+def count_evens(lst):
+    counter = 0
+    for item in lst:
+        if item % 2 == 0:
+            counter +=1
+    return counter
+    
+givenlst = [3,5,4,1,0] 
+print("There's" ,count_evens(givenlst) ,"even numbers in list.")
+'''
+#Q17 <<
+'''
+def creat_list():
+    creature = []
+    x = 0
+    while x <100 :
+        x = int(input('Enter numbers in list{+100 quit}: '))
+        if x < 100:
+            creature += [x]
+    return creature
+    
+largest_num = int(input('Enter the greatest parameter: '))  
+
+
+def print_big_enough(lst,x):
+    new_list=[]
+    for item in lst:
+        if item <= largest_num:
+            new_list += [item]
+            ordered = sorted(new_list)
+    return ordered
+    
+lst = creat_list()    
+print("result: ",print_big_enough(lst,largest_num))
+
+print("primitive list ",sorted(lst))   #we can comment this line 
+'''
+#Q18 <<
+'''
+#creat a list of all numbers could be in original list
+#compare tow lists and print the first next number is not in original list
+lst = [1,2,3,5,10]
+numbers = list(range(1,lst[-1]))
+z = [x for x in numbers if x not in lst]
+first_next_num = z[0]
+print(first_next_num)
+'''
+#Q19 <<
+'''
+def revers(x):
+    L = len(x)
+    
+    for i in range(int(L/2)):   #replace first vs last 
+        n = x[i]                #replace first+1 vs last-1 ....
+        x[i] = x[L - i -1]      #thus go throuth the half of the list
+        x[L - i -1] = n
+    return x   
+       
+       
+lst = [10,20,30,40,50] 
+print(lst)
+print(revers(lst))
+'''
+#Q20 <<
+'''
+m = [[1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1]]
+
+for lst in m:
+    for i in lst:
+        print(i,end=' ')
+    print()
+print('\n')
+m[2][4]= 0    #forth element in second element in m  
+for lst in m:
+    for i in lst:
+        print(i,end=' ')
+    print()
+
+'''
+#Q21 <<
+'''
+lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] #__1__
+lst = [x for x in range(1,11)]        #__2__
+lst = list(range(1,11,1))             #__3__
+#------------------------
+lst = []
+for i in range(1,10+1):
+    lst += [i]                        #__4__
+#------------------------            
+lst = list(range(1,5))+[5,6]+[x for x in range(7,11)]   #__5__
+'''
+#Q23 <<
+'''
+board = [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']    
+player = 1    
+Win = 1    
+Draw = -1    
+Running = 0    
+Stop = 1    
+Game = Running    
+   
+def DrawBoard():    
+    print(" %c , %c , %c " % (board[1],board[2],board[3]))
+    print(" %c , %c , %c " % (board[4],board[5],board[6]))
+    print(" %c , %c , %c " % (board[7],board[8],board[9]))   
+   
+def CheckPosition(x):    
+    if(board[x] == ' '):    
+        return True    
+    else:    
+        return False    
+   
+def CheckWin():    
+    global Game    
+    #eight Winning Condition    
+    if(board[1] == board[2] == board[3] and board[1] != ' '):    
+        Game = Win    
+    elif(board[4] == board[5] == board[6] and board[4] != ' '):    
+        Game = Win    
+    elif(board[7] == board[8] == board[9] and board[7] != ' '):    
+        Game = Win    
+    elif(board[1] == board[4] == board[7] and board[1] != ' '):    
+        Game = Win    
+    elif(board[2] == board[5] == board[8] and board[2] != ' '):    
+        Game = Win    
+    elif(board[3] == board[6] == board[9] and board[3] != ' '):    
+        Game=Win    
+    elif(board[1] == board[5] == board[9] and board[5] != ' '):    
+        Game = Win    
+    elif(board[3] == board[5] == board[7] and board[5] != ' '):    
+        Game=Win    
+    #Draw Condition    
+    elif(board[1]!=' ' and board[2]!=' ' and board[3]!=' ' and board[4]!=' ' and board[5]!=' ' and board[6]!=' ' and board[7]!=' ' and board[8]!=' ' and board[9]!=' '):    
+        Game=Draw    
+    else:            
+        Game=Running    
+    
+print("Player 1 is X and Player 2 is O:")    
+while(Game == Running):    
+    DrawBoard()    
+    if(player % 2 != 0):    
+        print("Player 1's turn")    
+        Mark = 'X'    
+    else:    
+        print("Player 2's turn")    
+        Mark = 'O'    
+    choice = int(input("Enter the position between [1-9]: "))    
+    if(CheckPosition(choice)):    
+        board[choice] = Mark    
+        player+=1    
+        CheckWin()    
+    
+DrawBoard()    
+if(Game==Draw):    
+    print("Game Draw")    
+elif(Game==Win):    
+    player-=1    
+    if(player%2!=0):    
+        print("Player 1 [X] Won")    
+    else:    
+        print("Player 2 [O] Won")  
+'''
+
